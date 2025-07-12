@@ -1,0 +1,19 @@
+let arr = [7, 4, 3, 5, 1, 2];
+
+function InsertionSort(arr) {
+  let length = arr.length;
+  for (let i = 1; i < length; i++) {
+    let current = arr[i];
+    let prev = i - 1;
+
+    while (arr[prev] > current && prev >= 0) {
+      arr[prev + 1] = arr[prev];
+      prev--;
+    }
+    arr[prev + 1] = current;
+  }
+  return arr;
+}
+
+let result = InsertionSort(arr);
+console.log(result);
