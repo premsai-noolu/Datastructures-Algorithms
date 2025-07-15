@@ -1,5 +1,3 @@
-//707. Design Linked List
-
 function Node(val) {
   this.val = val;
   this.next = null;
@@ -13,7 +11,17 @@ var MyLinkedList = function () {
  * @param {number} index
  * @return {number}
  */
-MyLinkedList.prototype.get = function (index) {};
+MyLinkedList.prototype.get = function (index) {
+  if (index < 0 || index >= this.size) return -1;
+  let curr = this.head;
+  if (index == 0) {
+    return curr.val;
+  }
+  for (let i = 0; i < index; i++) {
+    curr = curr.next;
+  }
+  return curr.val;
+};
 
 /**
  * @param {number} val
@@ -76,7 +84,30 @@ MyLinkedList.prototype.addAtIndex = function (index, val) {
  * @param {number} index
  * @return {void}
  */
-MyLinkedList.prototype.deleteAtIndex = function (index) {};
+MyLinkedList.prototype.deleteAtIndex = function (index) {
+  if (index < 0 || index >= this.size) return;
+  if (index == 0 && this.size == 1) {
+    this.head = null;
+    this.size--;
+    return;
+  }
+  let curr = this.head;
+  if (index == 0) {
+    this.head = curr.next;
+    this.size--;
+    return;
+  }
+  for (let i = 0; i < index - 1; i++) {
+    curr = curr.next;
+  }
+  if (index == this.size - 1) {
+    curr.next = null;
+    this.size--;
+  } else {
+    curr.next = curr.next.next;
+    this.size--;
+  }
+};
 
 /**
  * Your MyLinkedList object will be instantiated and called as such:
