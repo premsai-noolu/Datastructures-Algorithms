@@ -47,3 +47,24 @@ var isPalindrome = function (s) {
   }
   return filteredString === reverse;
 };
+
+//Best approach
+
+var isPalindrome = function (s) {
+  s = s.toLowerCase();
+  let a = 0;
+  let b = s.length - 1;
+  while (a < b) {
+    if (!s[a].match(/^[a-z0-9]$/)) {
+      ++a;
+    } else if (!s[b].match(/^[a-z0-9]$/)) {
+      --b;
+    } else if (s[a] === s[b]) {
+      ++a;
+      --b;
+    } else {
+      return false;
+    }
+  }
+  return true;
+};
