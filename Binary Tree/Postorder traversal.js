@@ -30,4 +30,25 @@ var postorderTraversal = function (root) {
   }
 
   return ans;
+
+  //Iterative approach 2 (using one stack)
+  let curr = root;
+  let stack = [];
+  let ans = [];
+  let lastVisited = null;
+  while (curr || stack.length) {
+    while (curr) {
+      stack.push(curr);
+      curr = curr.left;
+    }
+
+    let peek = stack[stack.length - 1];
+    if (peek.right && peek.right != lastVisited) {
+      curr = peek.right;
+    } else {
+      ans.push(peek.val);
+      lastVisited = stack.pop();
+    }
+  }
+  return ans;
 };
