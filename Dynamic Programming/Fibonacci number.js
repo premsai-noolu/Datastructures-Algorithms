@@ -1,5 +1,7 @@
 //509. Fibonacci Number
 
+//Top-down approach
+//memoization
 // let dp={}
 // var fib = function(n) {
 //     if(n<=1){
@@ -13,6 +15,8 @@
 //     return dp[n]
 // };
 
+//Bottom up approach
+//Tabulation
 let dp = [0, 1];
 var fib = function (n) {
   for (let i = 2; i <= n; i++) {
