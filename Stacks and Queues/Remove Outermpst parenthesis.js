@@ -10,7 +10,8 @@ var removeOuterParentheses = function (s) {
       if (stack.length > 1) {
         ans = ans + s[i];
       }
-    } else {
+    } 
+    else {
       if (stack.length > 1) {
         ans = ans + s[i];
       }
